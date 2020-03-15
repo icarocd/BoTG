@@ -16,5 +16,5 @@ https://doi.org/10.1002/asi.24167
 }
 ```
 
-The source code uses Java 11 and Maven. Check botg.sh for instructions.
+The source code uses Java 8+ and Maven. Check botg.sh for instructions.
 
