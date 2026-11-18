@@ -17,6 +17,11 @@ import com.thoughtworks.xstream.XStream;
 public class ObjectIO {
     private final boolean compress;
     private final XStream xStream = new XStream();
+    {
+        // XStream 1.4.18+ only deserializes allowlisted types. Allow just this project's own classes
+        // (standard JDK types like collections and boxed primitives are allowed by default).
+        xStream.allowTypesByWildcard(new String[] { "mining.**", "util.**" });
+    }
 
     public ObjectIO() {
         this(true);

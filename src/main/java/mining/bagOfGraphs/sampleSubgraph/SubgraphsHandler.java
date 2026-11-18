@@ -98,7 +98,7 @@ public abstract class SubgraphsHandler {
                     collector.collect(getSubgraphFromStringLine(peekingLineIterator.next()));
             }
         } finally {
-            lineIterator.close();
+            FileUtils.closeQuietly(lineIterator);
         }
 	}
 	public List<SampleSubgraph> loadSamplesSubgraphs(File inputFile, int maxLoads) {
@@ -115,7 +115,7 @@ public abstract class SubgraphsHandler {
 	    try{
             return consumeMetadataFromFile(Iterators.peekingIterator(lineIterator));
         }finally{
-            lineIterator.close();
+            FileUtils.closeQuietly(lineIterator);
         }
     }
 	private Map<String, String> consumeMetadataFromFile(PeekingIterator<String> peekingLineIterator) {
